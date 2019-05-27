@@ -4,7 +4,7 @@
 #include <vector>
 #include "registro.h"
 
-const std::string path="buckets/";
+const std::string path="../BD2Proyecto1/BD2Proyect/buckets/";
 const int d=7;
 struct Bucket{
   int elementosMax;

@@ -161,9 +161,9 @@ public:
     if (delimiters[0] == -1) {
       return false;
     }
-    std::ofstream answerQuery("answerQuery.csv", std::ios::out);
+    std::ofstream answerQuery("../BD2Proyecto1/BD2Proyect/answerQuery.csv", std::ios::out);
     if (answerQuery.is_open()) {
-      std::ifstream origin("athlete_events_clean.csv", std::ios::in);
+      std::ifstream origin("../BD2Proyecto1/BD2Proyect/athlete_events_clean.csv", std::ios::in);
       if (origin.is_open()) {
         std::string line;
         std::getline(origin, line);

@@ -27,10 +27,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        randomIndex.cpp
 
 HEADERS += \
-        mainwindow.h
+        bika.h \
+        bucket.h \
+        hashIndex.h \
+        mainwindow.h \
+        parseSql.h \
+        registro.h
 
 FORMS += \
         mainwindow.ui
@@ -41,6 +47,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    a.out \
     athlete_events_clean.csv \
     bigtest.csv \
     nani.csv \

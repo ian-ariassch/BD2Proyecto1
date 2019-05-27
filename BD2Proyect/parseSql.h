@@ -9,7 +9,7 @@
 #include <fstream>
 
 void createLogError(){
-  std::ofstream logError("logError.txt", std::ios::out);
+  std::ofstream logError("../BD2Proyecto1/BD2Proyect/logError.txt", std::ios::out);
   if (logError.is_open()) {
     logError << "Syntax error\n";
     logError << "Consultas aceptadas:\n";
@@ -23,7 +23,7 @@ void createLogError(){
 }
 
 void deleteLogError() {
-  remove("logError.txt");
+  remove("../BD2Proyecto1/BD2Proyect/logError.txt");
 }
 
 std::vector<std::string> getStringComponents(std::string line, std::string  delimiter = " ") {
@@ -41,10 +41,10 @@ std::vector<std::string> getStringComponents(std::string line, std::string  deli
 }
 
 void refreshAnswer() {
-  std::ifstream origin("athlete_events_clean.csv", std::ios::in);
+  std::ifstream origin("../BD2Proyecto1/BD2Proyect/athlete_events_clean.csv", std::ios::in);
   if (origin.is_open()) {
     std::string line;
-    std::ofstream refreshed("answerQuery.csv", std::ios::out);
+    std::ofstream refreshed("../BD2Proyecto1/BD2Proyect/answerQuery.csv", std::ios::out);
     while (std::getline(origin, line)) {
       if (refreshed.is_open()) {
         refreshed << line << '\n';
