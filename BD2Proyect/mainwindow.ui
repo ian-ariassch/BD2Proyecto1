@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1230</width>
+    <width>1840</width>
     <height>1038</height>
    </rect>
   </property>
@@ -281,7 +281,7 @@ QMenu::separator {
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>951</width>
+      <width>1411</width>
       <height>941</height>
      </rect>
     </property>
@@ -295,9 +295,9 @@ QMenu::separator {
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>1030</x>
+      <x>1450</x>
       <y>90</y>
-      <width>141</width>
+      <width>261</width>
       <height>25</height>
      </rect>
     </property>
@@ -308,9 +308,9 @@ QMenu::separator {
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>50</y>
-      <width>241</width>
+      <width>371</width>
       <height>25</height>
      </rect>
     </property>
@@ -318,7 +318,7 @@ QMenu::separator {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>130</y>
       <width>111</width>
       <height>17</height>
@@ -331,9 +331,9 @@ QMenu::separator {
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>160</y>
-      <width>231</width>
+      <width>371</width>
       <height>25</height>
      </rect>
     </property>
@@ -341,7 +341,7 @@ QMenu::separator {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>200</y>
       <width>101</width>
       <height>17</height>
@@ -354,9 +354,9 @@ QMenu::separator {
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>230</y>
-      <width>231</width>
+      <width>371</width>
       <height>25</height>
      </rect>
     </property>
@@ -364,7 +364,7 @@ QMenu::separator {
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1450</x>
       <y>20</y>
       <width>111</width>
       <height>17</height>
@@ -377,7 +377,7 @@ QMenu::separator {
    <widget class="QPushButton" name="TransactionsButton">
     <property name="geometry">
      <rect>
-      <x>1030</x>
+      <x>1570</x>
       <y>270</y>
       <width>141</width>
       <height>25</height>
@@ -387,13 +387,26 @@ QMenu::separator {
      <string>Enter Transactions</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="reset">
+    <property name="geometry">
+     <rect>
+      <x>1730</x>
+      <y>90</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1230</width>
+     <width>1840</width>
      <height>24</height>
     </rect>
    </property>

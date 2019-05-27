@@ -29,6 +29,8 @@ private slots:
 
     void on_TransactionsButton_clicked();
 
+    void on_reset_clicked();
+
 private:
 
 };

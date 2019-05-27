@@ -54,3 +54,15 @@ void MainWindow::on_TransactionsButton_clicked()
         stream << T1 <<endl;
     }
 }
+
+void MainWindow::on_reset_clicked()
+{
+    QFile file("../BD2Proyecto1/BD2Proyect/query.txt");
+    if(file.open(QIODevice::ReadWrite | QIODevice::Truncate))
+    {
+        QTextStream stream1(&file);
+        stream1 << "" <<endl;
+    }
+    qApp->quit();
+    QProcess::startDetached(qApp->arguments()[0],qApp->arguments());
+}
