@@ -1,43 +1,44 @@
-#include <iostream>
+#include "hashIndex.h"
+#include "parseTransaction.h"
+#include <vector>
 #include <mutex>
 #include <thread>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
-string x = "\"C\"";
 mutex mtx;
-void T1(string line1)
+void consult(int id, int year, int transaccion,HashIndex index )
 {
   mtx.lock();
-  x = line1;
-  mtx.unlock();
-  mtx.lock();
-  cout<<"T1: "<<x<<endl;
+  index.updateYear(id,year,transaccion);
   mtx.unlock();
 };
-void T2(string line2)
-{
-  mtx.lock();
-  cout<<"T2: "<<x<<endl;
-  mtx.unlock();
-  mtx.lock();
-  x = line2;
-  mtx.unlock();
 
-};
-int main()
+void transaccion()
 {
-  ifstream tran1("T1.txt");
-  ifstream tran2("T2.txt");
-  string line1;
-  string line2;
-  for(int i=0; i<3;i++)tran1 >> line1;
-  for(int i=0; i<3;i++)tran2 >> line2;
-  cout<<line1<<endl;
-  cout<<line2<<endl;
-  thread t2(T2, line2);
-  thread t1(T1,line1);
-
+  ofstream answerQuery("../BD2Proyect/answerQuery.csv", ios::out | ofstream::trunc);
+  if (answerQuery.is_open()) {
+    ifstream origin("../BD2Proyect/athlete_events_clean.csv", ios::in);
+    if (origin.is_open()) {
+      string line;
+      getline(origin, line);
+      answerQuery << line << '\n';
+      origin.close();
+    }
+    else {
+      cerr << "Unable to open file\n";
+    }
+  answerQuery.close();
+}else{
+  cerr << "Unable to open file\n";
+}
+  string str="../BD2Proyect/nani.csv";
+  string str2="../BD2Proyect/athlete_events_clean.csv";
+  HashIndex index(str2,"../BD2Proyect/hashIndex.txt");
+  vector<int> parseoTrans = parseoTrasaccion(); //year1 id year2
+  thread t1(consult,parseoTrans[1],parseoTrans[0],1,index);
+  thread t2(consult,parseoTrans[1], parseoTrans[2],2,index);
 
   t2.join();
   t1.join();

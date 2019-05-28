@@ -4,8 +4,8 @@
 #include <vector>
 #include "registro.h"
 
-const std::string path="../BD2Proyecto1/BD2Proyect/buckets/";
-const int d=7;
+const std::string path="../BD2Proyect/buckets/";
+const int d=12;
 struct Bucket{
   int elementosMax;
   int nRegistros;
@@ -77,6 +77,14 @@ struct Bucket{
   }
   void mostrar(){
     cout<<elementosMax<<" "<<nRegistros<<" "<<dActual<<" "<<name<<" "<<File<<" "<<overflow<<endl;
+  }
+
+  void updateBucket(std::vector<Registro*> registers){
+    std::ofstream myfile(File, std::ios::binary);
+    for(auto item: registers){
+      myfile<<*item;
+    }
+    myfile.close();
   }
 };
 

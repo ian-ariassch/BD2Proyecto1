@@ -1,1 +1,1 @@
-update1
+UPDATE olimpicos SET year = 1999 WHERE id = 4096

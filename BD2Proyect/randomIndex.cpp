@@ -80,8 +80,8 @@ public:
       return false;
     }
     Registro* registro;
-    ofstream output("../BD2Proyecto1/BD2Proyect/answerQuery.csv", ios::out);
-    std::ifstream origin("../BD2Proyecto1/BD2Proyect/athlete_events_clean.csv", std::ios::in);
+    ofstream output("../BD2Proyect/answerQuery.csv", ios::out);
+    std::ifstream origin("../BD2Proyect/athlete_events_clean.csv", std::ios::in);
     if (origin.is_open()) {
       std::string line;
       std::getline(origin, line);

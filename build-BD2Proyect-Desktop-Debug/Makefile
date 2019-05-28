@@ -53,7 +53,8 @@ OBJECTS_DIR   = ./
 SOURCES       = ../BD2Proyect/main.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		moc_mainwindow.o
-DIST          = ../BD2Proyect/athlete_events_clean.csv \
+DIST          = ../BD2Proyect/a.out \
+		../BD2Proyect/athlete_events_clean.csv \
 		../BD2Proyect/bigtest.csv \
 		../BD2Proyect/nani.csv \
 		../BD2Proyect/query.txt \
@@ -112,6 +113,7 @@ DIST          = ../BD2Proyect/athlete_events_clean.csv \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../BD2Proyect/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -131,7 +133,13 @@ DIST          = ../BD2Proyect/athlete_events_clean.csv \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../BD2Proyect/BD2Proyect.pro ../BD2Proyect/mainwindow.h ../BD2Proyect/main.cpp
+		../BD2Proyect/BD2Proyect.pro ../BD2Proyect/bika.h \
+		../BD2Proyect/bucket.h \
+		../BD2Proyect/hashIndex.h \
+		../BD2Proyect/mainwindow.h \
+		../BD2Proyect/parseSql.h \
+		../BD2Proyect/registro.h \
+		../BD2Proyect/parseTransaction.h ../BD2Proyect/main.cpp
 QMAKE_TARGET  = BD2Proyect
 DESTDIR       = 
 TARGET        = BD2Proyect
@@ -197,6 +205,7 @@ Makefile: ../BD2Proyect/BD2Proyect.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -275,6 +284,7 @@ Makefile: ../BD2Proyect/BD2Proyect.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -313,7 +323,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../BD2Proyect/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../BD2Proyect/bika.h ../BD2Proyect/bucket.h ../BD2Proyect/hashIndex.h ../BD2Proyect/mainwindow.h ../BD2Proyect/parseSql.h ../BD2Proyect/registro.h ../BD2Proyect/parseTransaction.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../BD2Proyect/main.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../BD2Proyect/mainwindow.ui $(DISTDIR)/
 
@@ -376,7 +386,15 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 main.o: ../BD2Proyect/main.cpp ../BD2Proyect/mainwindow.h \
 		../BD2Proyect/mainwindow.cpp \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../BD2Proyect/bika.h \
+		../BD2Proyect/hashIndex.h \
+		../BD2Proyect/bucket.h \
+		../BD2Proyect/registro.h \
+		../BD2Proyect/parseSql.h \
+		../BD2Proyect/randomIndex.cpp \
+		../BD2Proyect/transacciones.cpp \
+		../BD2Proyect/parseTransaction.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../BD2Proyect/main.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

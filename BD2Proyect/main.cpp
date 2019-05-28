@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     w.setWindowTitle("Database");
     w.show();
 
-    QFile file("../BD2Proyecto1/BD2Proyect/answerQuery.csv");
+    QFile file("../BD2Proyect/answerQuery.csv");
     QStringList word;
     QString merged;
     int columns = 1;

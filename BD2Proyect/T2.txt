@@ -1,1 +1,1 @@
-update2
+UPDATE olimpicos SET year = 2020 WHERE id = 4096

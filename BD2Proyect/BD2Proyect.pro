@@ -28,7 +28,8 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        randomIndex.cpp
+        randomIndex.cpp \
+    transacciones.cpp
 
 HEADERS += \
         bika.h \
@@ -36,7 +37,8 @@ HEADERS += \
         hashIndex.h \
         mainwindow.h \
         parseSql.h \
-        registro.h
+        registro.h \
+    parseTransaction.h
 
 FORMS += \
         mainwindow.ui

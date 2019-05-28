@@ -1,1 +1,1 @@
-select * from olimpicos where id <= 1000
+

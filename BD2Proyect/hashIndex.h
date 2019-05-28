@@ -8,7 +8,7 @@
 #include <string>
 #include "bucket.h"
 
-const int maxElements=100;
+const int maxElements=33;
 
 class HashIndex{
   std::string fileName;
@@ -161,9 +161,9 @@ public:
     if (delimiters[0] == -1) {
       return false;
     }
-    std::ofstream answerQuery("../BD2Proyecto1/BD2Proyect/answerQuery.csv", std::ios::out);
+    std::ofstream answerQuery("../BD2Proyect/answerQuery.csv", std::ios::out);
     if (answerQuery.is_open()) {
-      std::ifstream origin("../BD2Proyecto1/BD2Proyect/athlete_events_clean.csv", std::ios::in);
+      std::ifstream origin("../BD2Proyect/athlete_events_clean.csv", std::ios::in);
       if (origin.is_open()) {
         std::string line;
         std::getline(origin, line);
@@ -196,6 +196,34 @@ public:
       answerQuery.close();
       return true;
     }
+  }
+
+  void updateYear(int ID, int newyear,int transaccion){
+    int idHash=hashFunction(ID);
+    bucket=hash[idHash];
+    std::vector<Registro*> registers=bucket->getRegistros();
+    std::vector<Registro*> nuevos;
+    Registro* registro;
+    for(auto item:registers){
+      if(item->id==ID){
+        registro=item;
+        break;
+      }
+    }
+    registro->year=std::to_string(newyear);
+    cout<<"Año del id: "<<registro->id<<" actualizado a "<<registro->year<<endl;
+    for(int i=0;i<registers.size();++i){
+      if(registers[i]->id==ID){
+        nuevos.push_back(registro);
+      }
+      else{
+        nuevos.push_back(registers[i]);
+      }
+    }
+    bucket->updateBucket(nuevos);
+    std::ofstream myfile("../BD2Proyect/answerQuery.csv", std::ios::binary | std::ios::app);
+    myfile<<*registro;
+    myfile.close();
   }
 
   ~HashIndex(){
