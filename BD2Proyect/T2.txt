@@ -1,1 +1,1 @@
-Sex2 = "F"
+UPDATE olimpicos SET year = 2020 WHERE id = 4096
